@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
 
-  <body style="font-family: Georgia, 'Times New Roman', Arial;">
-
-    <h1 style="margin-bottom: 5px; padding-bottom: 2px;">Welcome, fellow Factorio-enjoyer!</h1>
-    <h2 style="margin-top: 5px;">This <dfn>Factorio-themed</dfn> OS aims to feel like Factorio, so it's designed around <dfn>efficiency</dfn> ;)</h2>
-    <img style="border-radius: 15px; object-fit: cover;" src="Factorio Titelscreen.jpg"/>
-    
+  <body style="font-family: Georgia, 'Times New Roman', Arial; background-image: url(Factorio\ background.jpg); background-size: cover; height: 100vh;">
+    <div style="display: flex; justify-content: space-between; color: orange; background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px); padding-left: 15px; padding-right: 15px; border-radius: 15px;">
+      <p>FactoriOS</p>
+      <script>
+        function updateTime(){
+          var currentTime = new Date().toLocaleString();
+          var timeText = document.querySelector("#clock");
+          timeText.innerHTML = currentTime;
+        }
+        setInterval(updateTime, 1000);
+      </script>
+      <p id="clock">Current Time</p>
+    </div>
+    <div style="border: solid; width: fit-content; border-radius: 25px; padding: 10px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: orange;">
+        <h1 style="margin-bottom: 5px; padding-bottom: 2px;">Welcome, fellow Factorio-enjoyer!</h1>
+        <h2 style="margin-top: 5px;">This <dfn>Factorio-themed</dfn> OS aims to feel like Factorio, so it's designed around <dfn>efficiency</dfn> ;)</h2>
+        <img style="border-radius: 15px; object-fit: cover;" src="Factorio Titelscreen.jpg"/>
+    </div>
   
   </body>
 
