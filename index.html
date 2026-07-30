@@ -4,6 +4,7 @@
   <body style="font-family: Georgia, 'Times New Roman', Arial; background-image: url(Factorio\ background.jpg); background-size: cover; height: 100vh;">
     <div style="display: flex; justify-content: space-between; color: orange; background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px); padding-left: 15px; padding-right: 15px; border-radius: 15px;">
       <p>FactoriOS</p>
+      <p id="introopen" style="cursor: pointer;">Open intro screen</p>
       <script>
         function updateTime(){
           var currentTime = new Date().toLocaleString();
@@ -14,12 +15,18 @@
       </script>
       <p id="clock">Current Time</p>
     </div>
-    <div style="border: solid; width: fit-content; border-radius: 25px; padding: 10px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: orange;">
+    <div id="intro" style="display: flex; flex-direction: column; border: solid; width: 617px; border-radius: 25px; padding: 10px; padding-top: 0px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: orange;">
+        <div id="introheader" style="display: flex; flex-direction: row; justify-content: space-between; width: 617px; background-color: rgb(42, 36, 36); color: orange; margin: 0px; padding: 0px;">
+          <p style="text-align: center; margin: 5px;">Handle</p>
+          <div id="introclose" style="cursor: pointer; margin: 0px; background-color: green; border-radius: 10px;">
+            <p style="margin: 5px;">Close</p>
+          </div>
+        </div>
         <h1 style="margin-bottom: 5px; padding-bottom: 2px;">Welcome, fellow Factorio-enjoyer!</h1>
         <h2 style="margin-top: 5px;">This <dfn>Factorio-themed</dfn> OS aims to feel like Factorio, so it's designed around <dfn>efficiency</dfn> ;)</h2>
         <img style="border-radius: 15px; object-fit: cover;" src="Factorio Titelscreen.jpg"/>
     </div>
-  
+    <script src="script.js"></script>
   </body>
 
 </html>
