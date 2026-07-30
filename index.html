@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
-
+  <head>
+    <script type="module" src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+  </head>
   <body style="font-family: Georgia, 'Times New Roman', Arial; background-image: url(Factorio\ background.jpg); background-size: cover; height: 100vh;">
     <div style="display: flex; justify-content: space-between; color: orange; background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px); padding-left: 15px; padding-right: 15px; border-radius: 15px;">
       <p>FactoriOS</p>
@@ -15,10 +18,10 @@
       </script>
       <p id="clock">Current Time</p>
     </div>
-    <div id="intro" style="display: flex; flex-direction: column; border: solid; width: 617px; border-radius: 25px; padding: 10px; padding-top: 0px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: orange;">
-        <div id="introheader" style="display: flex; flex-direction: row; justify-content: space-between; width: 617px; background-color: rgb(42, 36, 36); color: orange; margin: 0px; padding: 0px;">
+    <div class="window" id="intro" style="width: 617px; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: orange;">
+        <div class="header" id="introheader" style="width: 617px;">
           <p style="text-align: center; margin: 5px;">Handle</p>
-          <div id="introclose" style="cursor: pointer; margin: 0px; background-color: green; border-radius: 10px;">
+          <div class="closebutton" id="introclose">
             <p style="margin: 5px;">Close</p>
           </div>
         </div>
@@ -28,5 +31,4 @@
     </div>
     <script src="script.js"></script>
   </body>
-
 </html>

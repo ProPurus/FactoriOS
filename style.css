@@ -1,0 +1,26 @@
+.closebutton{
+    cursor: pointer;
+    margin: 0px;
+    background-color: green;
+    border-radius: 10px;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(42, 36, 36);
+    color: orange;
+    margin: 0px;
+    padding: 0px;
+}
+
+.window{
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    border-radius: 25px;
+    padding: 10px;
+    padding-top: 0px;
+    position: absolute;
+}
