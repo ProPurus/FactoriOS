@@ -5,7 +5,8 @@
     border-radius: 10px;
 }
 
-.header{
+.windowheader{
+    background-image: url(Handlebar\ background.png);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -18,9 +19,17 @@
 .window{
     display: flex;
     flex-direction: column;
-    border: solid;
+    border: solid orange;
     border-radius: 25px;
+    color: white;
+    background-color: #3c3b3c;
     padding: 10px;
     padding-top: 0px;
     position: absolute;
+}
+
+.selected{
+    border-radius: 15px;
+    outline: solid orange 5px;
+    text-decoration-line: underline;
 }

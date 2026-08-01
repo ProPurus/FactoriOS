@@ -1,5 +1,6 @@
 // Make the DIV element draggable:
 dragElement(document.getElementById("intro"));
+dragElement(document.getElementById("notes"))
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
@@ -53,22 +54,69 @@ function dragElement(element) {
   }
 }
 
+var topBar = document.querySelector("#topbar")
+
 function closeWindow(element){
     element.style.display = "none"
 }
 
 function openWindow(element){
-    element.style.display = "flex"
+    element.style.display = "flex";
+    biggestIndex++;
+    element.style.zIndex = biggestIndex;
+    topBar.style.zIndex = biggestIndex + 1;
 }
 
 var introScreen = document.querySelector("#intro")
 var introScreenClose = document.querySelector("#introclose")
 var introScreenOpen = document.querySelector("#introopen")
-
 introScreenClose.addEventListener("click", function(){
     closeWindow(introScreen);
 });
-
 introScreenOpen.addEventListener("click", function(){
     openWindow(introScreen);
 });
+
+var notesScreen = document.querySelector("#notes")
+var notesIcon = document.querySelector("#notesIcon")
+var notesScreenClose = document.querySelector("#notesclose")
+notesIcon.addEventListener("click", () => handleIconTap(notesIcon));
+notesScreenClose.addEventListener("click", () => closeWindow(notesScreen));
+
+addWindowTapHandling(document.querySelector("#intro"));
+addWindowTapHandling(document.querySelector("#notes"));
+
+
+var selectedIcon = undefined
+
+function selectIcon(element){
+  element.classList.add("selected");
+  selectedIcon = element
+}
+
+function deselectIcon(element){
+  element.classList.remove("selected");
+  selectedIcon = undefined
+}
+
+function handleIconTap(element){
+  if (element.classList.contains("selected")){
+    deselectIcon(element);
+    openWindow(document.getElementById(element.id.substring(0, element.id.length - "Icon".length)))
+  } else {
+    selectIcon(element)
+  }
+}
+
+var biggestIndex = 5;
+
+function addWindowTapHandling(element){
+  element.addEventListener("mousedown", () => handleWindowTap(element))
+}
+
+function handleWindowTap(element){
+  biggestIndex++;
+  element.style.zIndex = biggestIndex;
+  topBar.style.zIndex = biggestIndex + 1;
+  deselectIcon(selectedIcon);
+}
