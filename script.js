@@ -1,6 +1,5 @@
 // Make the DIV element draggable:
 dragElement(document.getElementById("intro"));
-dragElement(document.getElementById("notes"))
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
@@ -67,6 +66,16 @@ function openWindow(element){
     topBar.style.zIndex = biggestIndex + 1;
 }
 
+function addApp(name){
+  let screen = document.querySelector("#" + name);
+  let icon = document.querySelector("#" + name + "icon");
+  let close = document.querySelector("#" + name + "close");
+  close.addEventListener("click" , () => closeWindow(screen));
+  icon.addEventListener("click", () => handleIconTap(icon));
+  addWindowTapHandling(screen);
+  dragElement(document.getElementById(name));
+}
+
 var introScreen = document.querySelector("#intro")
 var introScreenClose = document.querySelector("#introclose")
 var introScreenOpen = document.querySelector("#introopen")
@@ -76,15 +85,17 @@ introScreenClose.addEventListener("click", function(){
 introScreenOpen.addEventListener("click", function(){
     openWindow(introScreen);
 });
+addWindowTapHandling(document.querySelector("#intro"));
 
-var notesScreen = document.querySelector("#notes")
-var notesIcon = document.querySelector("#notesIcon")
+addApp("notes");
+addApp("terminal");
+/*var notesScreen = document.querySelector("#notes")
+var notesIcon = document.querySelector("#notesicon")
 var notesScreenClose = document.querySelector("#notesclose")
 notesIcon.addEventListener("click", () => handleIconTap(notesIcon));
 notesScreenClose.addEventListener("click", () => closeWindow(notesScreen));
 
-addWindowTapHandling(document.querySelector("#intro"));
-addWindowTapHandling(document.querySelector("#notes"));
+addWindowTapHandling(document.querySelector("#notes"));*/
 
 
 var selectedIcon = undefined

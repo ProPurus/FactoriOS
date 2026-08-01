@@ -18,10 +18,14 @@
       </script>
       <p id="clock">Current Time</p>
     </div>
-    <div id="appbar">
-      <div id="notesIcon" style="text-align: center; width: fit-content; color: orange">
+    <div id="appbar" style="display: flex;">
+      <div id="notesicon" style="text-align: center; width: fit-content; color: orange; margin-left: 10px; margin-right: 10px;">
         <img src="Blueprint Book.png" style="width: 100px; border-radius: 10px; margin-top: 0px;"/>
         <p style="margin-top: 0px; background-color: #3c3b3c; border-radius: 15px; margin-left: 20px; margin-right: 20px;">Notes</p>
+      </div>
+      <div id="terminalicon" style="text-align: center; width: fit-content; color: orange; margin-left: 10px; margin-right: 10px;">
+        <img src="Blueprint Book.png" style="width: 100px; border-radius: 10px; margin-top: 0px;"/>
+        <p style="margin-top: 0px; background-color: #3c3b3c; border-radius: 15px; margin-left: 20px; margin-right: 20px;">terminal</p>
       </div>
     </div>
     <div class="window" id="intro" style="z-index: 5; width: 617px; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #3c3b3c; background-color: orange; border-color: #3c3b3c;">
@@ -43,6 +47,15 @@
         </div>
       </div>
       <p>super cool notes app</p>
+    </div>
+    <div class="window" id="terminal" style="z-index: 1; display: flex; width: 800px; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+      <div class="windowheader" id="terminalheader">
+        <p style="text-align: center; margin: 5px;">Terminal</p>
+        <div class="closebutton" id="terminalclose">
+          <p style="margin: 5px;">Close</p>
+        </div>
+      </div>
+      <p>test Terminal</p>
     </div>
     <script src="script.js"></script>
   </body>
