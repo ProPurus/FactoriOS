@@ -21,7 +21,7 @@
     <div id="appbar" style="display: flex;">
       <div id="notesicon" style="text-align: center; width: fit-content; color: orange; margin-left: 10px; margin-right: 10px;">
         <img src="Blueprint Book.png" style="width: 100px; border-radius: 10px; margin-top: 0px;"/>
-        <p style="margin-top: 0px; background-color: #3c3b3c; border-radius: 15px; margin-left: 20px; margin-right: 20px;">Notes</p>
+        <p style="margin-top: 0px; background-color: #3c3b3c; border-radius: 15px; margin-left: 10px; margin-right: 10px;">Factory </br> Notes</p>
       </div>
       <div id="terminalicon" style="text-align: center; width: fit-content; color: orange; margin-left: 10px; margin-right: 10px;">
         <img src="Blueprint Book.png" style="width: 100px; border-radius: 10px; margin-top: 0px;"/>
@@ -30,25 +30,30 @@
     </div>
     <div class="window" id="intro" style="z-index: 5; width: 617px; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #3c3b3c; background-color: orange; border-color: #3c3b3c;">
         <div class="windowheader" id="introheader" style="width: 617px;">
-          <p style="text-align: center; margin: 5px;">Handle</p>
+          <p style="text-align: center; margin: 5px;">Intro</p>
           <div class="closebutton" id="introclose">
             <p style="margin: 5px;">Close</p>
           </div>
         </div>
         <h1 style="margin-bottom: 5px; padding-bottom: 2px;">Welcome, fellow Factorio-enjoyer!</h1>
-        <h2 style="margin-top: 5px;">This <dfn>Factorio-themed</dfn> OS aims to feel like Factorio, so it's designed around <dfn>efficiency</dfn> ;)</h2>
+        <h2 style="margin-top: 5px;">This <dfn>Factorio-themed</dfn> OS aims to feel like Factorio. It can even help you while you <dfn>play the game</dfn> ;)</h2>
         <img style="border-radius: 15px; object-fit: cover;" src="Factorio Titelscreen.jpg"/>
     </div>
-    <div class="window" id="notes" style="z-index: 1; display: flex; width: 800px; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <div class="window" id="notes" style="z-index: 1; display: none; width: 800px; height: 600px; top: 50%; left: 50%; transform: translate(-50%, -50%);">
       <div class="windowheader" id="notesheader">
-        <p style="text-align: center; margin: 5px;">Notes</p>
+        <p style="text-align: center; margin: 5px;">Factory Notes</p>
         <div class="closebutton" id="notesclose">
           <p style="margin: 5px;">Close</p>
         </div>
       </div>
-      <p>super cool notes app</p>
+      <div id="notestopbar" style="border-bottom: solid 3px orange;">
+        <p style="margin-bottom: 3px;">Use this app to make notes about your factory</p>
+      </div>
+      <div id="notescontent" style="overflow-y: scroll;">
+        <p contenteditable="True" style="outline: none;">start typing here...</p>
+      </div>
     </div>
-    <div class="window" id="terminal" style="z-index: 1; display: flex; width: 800px; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <div class="window" id="terminal" style="z-index: 1; display: none; width: 800px; top: 50%; left: 50%; transform: translate(-50%, -50%);">
       <div class="windowheader" id="terminalheader">
         <p style="text-align: center; margin: 5px;">Terminal</p>
         <div class="closebutton" id="terminalclose">

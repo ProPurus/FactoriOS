@@ -131,3 +131,18 @@ function handleWindowTap(element){
   topBar.style.zIndex = biggestIndex + 1;
   deselectIcon(selectedIcon);
 }
+
+/*let content = [
+  {
+    content: `
+    <p contenteditable="True"> start typing here... </p>
+    `
+  }
+]
+
+function setNotesContent(index){
+  let notesContent = document.querySelector("#notescontent");
+  notesContent.innerHTML = content[index].content
+}
+
+setNotesContent(0);*/
