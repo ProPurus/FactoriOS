@@ -53,8 +53,6 @@ function dragElement(element) {
   }
 }
 
-var topBar = document.querySelector("#topbar")
-
 function closeWindow(element){
     element.style.display = "none"
 }
@@ -63,7 +61,6 @@ function openWindow(element){
     element.style.display = "flex";
     biggestIndex++;
     element.style.zIndex = biggestIndex;
-    topBar.style.zIndex = biggestIndex + 1;
 }
 
 function addApp(name){
@@ -128,21 +125,13 @@ function addWindowTapHandling(element){
 function handleWindowTap(element){
   biggestIndex++;
   element.style.zIndex = biggestIndex;
-  topBar.style.zIndex = biggestIndex + 1;
   deselectIcon(selectedIcon);
 }
 
-/*let content = [
-  {
-    content: `
-    <p contenteditable="True"> start typing here... </p>
-    `
-  }
-]
-
-function setNotesContent(index){
-  let notesContent = document.querySelector("#notescontent");
-  notesContent.innerHTML = content[index].content
+function updateTime(){
+  let currentTime = new Date().toLocaleString();
+  let timeText = document.querySelector("#clock");
+  timeText.innerHTML = currentTime;
 }
 
-setNotesContent(0);*/
+setInterval(updateTime, 1000);

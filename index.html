@@ -5,17 +5,9 @@
     <link rel="stylesheet" type="text/css" href="style.css"/>
   </head>
   <body style="font-family: Georgia, 'Times New Roman', Arial; background-image: url(Factorio\ background.jpg); background-size: cover; height: 100vh;">
-    <div id="topbar" style="z-index: 6; display: flex; justify-content: space-between; color: orange; background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px); padding-left: 15px; padding-right: 15px; margin-bottom: 25px; border-radius: 15px;">
+    <div id="topbar" style="z-index: 999999; display: flex; justify-content: space-between; color: orange; background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px); padding-left: 15px; padding-right: 15px; margin-bottom: 25px; border-radius: 15px;">
       <p>FactoriOS</p>
       <p id="introopen" style="cursor: pointer;">Open intro screen</p>
-      <script>
-        function updateTime(){
-          var currentTime = new Date().toLocaleString();
-          var timeText = document.querySelector("#clock");
-          timeText.innerHTML = currentTime;
-        }
-        setInterval(updateTime, 1000);
-      </script>
       <p id="clock">Current Time</p>
     </div>
     <div id="appbar" style="display: flex;">
