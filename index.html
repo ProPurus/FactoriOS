@@ -31,15 +31,15 @@
         <h2 style="margin-top: 5px;">This <dfn>Factorio-themed</dfn> OS aims to feel like Factorio. It can even help you while you <dfn>play the game</dfn> ;)</h2>
         <img style="border-radius: 15px; object-fit: cover;" src="Factorio Titelscreen.jpg"/>
     </div>
-    <div class="window" id="notes" style="z-index: 1; display: none; width: 800px; height: 600px; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <div class="window" id="notes" style="z-index: 1; display: none; width: 55%; height: 75%; top: 50%; left: 50%; transform: translate(-50%, -50%);">
       <div class="windowheader" id="notesheader">
         <p style="text-align: center; margin: 5px;">Factory Notes</p>
         <div class="closebutton" id="notesclose">
           <p style="margin: 5px;">Close</p>
         </div>
       </div>
-      <div id="notestopbar" style="border-bottom: solid 3px orange;">
-        <p style="margin-bottom: 3px;">Use this app to make notes about your factory</p>
+      <div class="windowtopbar" id="notestopbar">
+        <h2 style="margin-bottom: 3px;">Use this app to make notes about your factory</h2>
       </div>
       <div id="notescontent" style="overflow-y: scroll;">
         <p contenteditable="True" style="outline: none;">start typing here...</p>
@@ -52,7 +52,13 @@
           <p style="margin: 5px;">Close</p>
         </div>
       </div>
-      <p>test Terminal</p>
+      <div class="windowtopbar" id="terminaltopbar">
+        <h2 style="margin-bottom: 3px;">Factory Terminal</h2>
+      </div>
+      <div id="terminalcontent">
+        <p>type <strong>help</strong> for commands</p>
+        <input type="text" id="terminalinput"/>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>

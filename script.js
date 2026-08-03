@@ -133,5 +133,31 @@ function updateTime(){
   let timeText = document.querySelector("#clock");
   timeText.innerHTML = currentTime;
 }
-
 setInterval(updateTime, 1000);
+
+// some terminal-action
+let terminalInput = document.getElementById("terminalinput");
+let terminalContent = document.getElementById("terminalcontent");
+
+function printToTerminal(text){
+  let newParagraph = document.createElement("p");
+  newParagraph.innerHTML = text;
+  terminalInput.before(newParagraph);
+}
+
+if (terminalInput){
+  terminalInput.addEventListener("keydown", (key) => {
+    if (key.key === "Enter"){
+      let input = terminalInput.value;
+      printToTerminal("> " + input);
+
+      switch(input){
+        case "test":
+          printToTerminal("Hello, World!");
+          break;
+        default:
+          printToTerminal('"' + input + '" ' + "is'nt a valid command")
+      }
+    }
+  })
+}

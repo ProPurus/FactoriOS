@@ -16,6 +16,10 @@
     padding: 0px;
 }
 
+.windowtopbar{
+    border-bottom: solid 3px orange;
+}
+
 .window{
     display: flex;
     flex-direction: column;
@@ -32,4 +36,11 @@
     border-radius: 15px;
     outline: solid orange 5px;
     text-decoration-line: underline;
+}
+
+#terminalinput{
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
 }
