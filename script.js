@@ -86,14 +86,6 @@ addWindowTapHandling(document.querySelector("#intro"));
 
 addApp("notes");
 addApp("terminal");
-/*var notesScreen = document.querySelector("#notes")
-var notesIcon = document.querySelector("#notesicon")
-var notesScreenClose = document.querySelector("#notesclose")
-notesIcon.addEventListener("click", () => handleIconTap(notesIcon));
-notesScreenClose.addEventListener("click", () => closeWindow(notesScreen));
-
-addWindowTapHandling(document.querySelector("#notes"));*/
-
 
 var selectedIcon = undefined
 
@@ -135,6 +127,8 @@ function updateTime(){
 }
 setInterval(updateTime, 1000);
 
+const apps = ["intro", "notes", "terminal"];
+
 // some terminal-action
 let terminalInput = document.getElementById("terminalinput");
 let terminalContent = document.getElementById("terminalcontent");
@@ -142,7 +136,7 @@ let terminalContent = document.getElementById("terminalcontent");
 function printToTerminal(text){
   let newParagraph = document.createElement("p");
   newParagraph.innerHTML = text;
-  terminalInput.before(newParagraph);
+  document.getElementById("terminalinputline").before(newParagraph);
 }
 
 if (terminalInput){
@@ -150,13 +144,39 @@ if (terminalInput){
     if (key.key === "Enter"){
       let input = terminalInput.value;
       printToTerminal("> " + input);
+      terminalInput.value = "";
 
-      switch(input){
+      let command = input.split(" ")[0];
+      let argument = input.split(" ")[1];
+      switch(command.toLowerCase()){
         case "test":
           printToTerminal("Hello, World!");
           break;
+        case "open":
+          let app = argument.toLowerCase();
+          let isRealApp = false;
+          for(let i = 0; i < apps.length; i++){
+            if (app === apps[i]){
+              openWindow(document.getElementById(app));
+              isRealApp = true;
+            }
+          }
+          if (isRealApp){
+            printToTerminal("Successfully opened " + app);
+          } else {
+            printToTerminal('"' + app + '" ' + "is'nt a real app");
+          }
+          break;
+        case "help":
+          printToTerminal("Very useful help");
+          break;
         default:
-          printToTerminal('"' + input + '" ' + "is'nt a valid command")
+          if (command === ""){
+            printToTerminal("Please enter an actual command ;)");
+          } else {
+            printToTerminal('"' + command + '" ' + "is'nt a valid command");
+          }
+          break;
       }
     }
   })
