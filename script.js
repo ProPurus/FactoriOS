@@ -128,6 +128,17 @@ function updateTime(){
 setInterval(updateTime, 1000);
 
 const apps = ["intro", "notes", "terminal"];
+const youtuberIDs = new Map([
+  ["doshdoshington", "@DoshDoshington"],
+  ["michaelhendriks", "@MichaelHendriks"],
+  ["nilaus", "@Nilaus"],
+  ["trupen", "@Trupen"],
+  ["admiralgaming", "@admiraltygaming"],
+  ["docjade", "@DocJade"],
+  ["xterminator", "@Xterminator"],
+  ["neuroplastic", "@NeuroplasticIdeas"],
+  ["avadiistrategy", "@AVADIIStrategy"]
+]);
 
 // some terminal-action
 let terminalInput = document.getElementById("terminalinput");
@@ -168,13 +179,30 @@ if (terminalInput){
           }
           break;
         case "help":
-          printToTerminal("Very useful help");
+          printToTerminal('Command list: "open [app]" opens said app,' + 
+            ' "developer" opens the website of the game,' + 
+            ' "visit [youtuber]" leads to the youtube-homepage of a youtuber (only certain ones I selected) (please write names of youtubers consisting of multiple words as one word)');
+          break;
+        case "developer":
+          window.open("https://www.factorio.com/");
+          printToTerminal("Successfully opened the game's website");
+          break;
+        case "visit":
+          let youtuber = argument.toLowerCase();
+          if (youtuberIDs.has(youtuber)){
+            window.open("https://www.youtube.com/" + youtuberIDs.get(youtuber));
+            printToTerminal("Successfully opened the youtube of " + youtuber);
+          } else {
+            printToTerminal("Sorry, your youtuber isn't in my list");
+          }
           break;
         default:
           if (command === ""){
             printToTerminal("Please enter an actual command ;)");
           } else {
-            printToTerminal('"' + command + '" ' + "is'nt a valid command");
+            printToTerminal(command.length < 10 ?
+              '"' + command + '" ' + "is'nt a valid command" :
+              "This isn't a valid command");
           }
           break;
       }

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script type="module" src="script.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css"/>
   </head>
   <body style="font-family: Georgia, 'Times New Roman', Arial; background-image: url(Factorio\ background.jpg); background-size: cover; height: 100vh;">
@@ -45,7 +44,7 @@
         <p contenteditable="True" style="outline: none;">start typing here...</p>
       </div>
     </div>
-    <div class="window" id="terminal" style="z-index: 1; display: none; width: 800px; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <div class="window" id="terminal" style="z-index: 1; display: none; width: 800px; max-height: 80%; top: 50%; left: 50%; transform: translate(-50%, -50%);">
       <div class="windowheader" id="terminalheader">
         <p style="text-align: center; margin: 5px;">Terminal</p>
         <div class="closebutton" id="terminalclose">
@@ -55,10 +54,11 @@
       <div class="windowtopbar" id="terminaltopbar">
         <h2 style="margin-bottom: 3px;">Factory Terminal</h2>
       </div>
-      <div id="terminalcontent">
+      <div id="terminalcontent" style="overflow-y: scroll;">
         <p>type <strong>help</strong> for commands</p>
         <p id="terminalinputline">> <input type="text" id="terminalinput"/></p>
       </div>
     </div>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
