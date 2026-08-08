@@ -150,62 +150,60 @@ function printToTerminal(text){
   document.getElementById("terminalinputline").before(newParagraph);
 }
 
-if (terminalInput){
-  terminalInput.addEventListener("keydown", (key) => {
-    if (key.key === "Enter"){
-      let input = terminalInput.value;
-      printToTerminal("> " + input);
-      terminalInput.value = "";
+terminalInput.addEventListener("keydown", (key) => {
+  if (key.key === "Enter"){
+    let input = terminalInput.value;
+    printToTerminal("> " + input);
+    terminalInput.value = "";
 
-      let command = input.split(" ")[0];
-      let argument = input.split(" ")[1];
-      switch(command.toLowerCase()){
-        case "test":
-          printToTerminal("Hello, World!");
-          break;
-        case "open":
-          let app = argument.toLowerCase();
-          let isRealApp = false;
-          for(let i = 0; i < apps.length; i++){
-            if (app === apps[i]){
-              openWindow(document.getElementById(app));
-              isRealApp = true;
-            }
+    let command = input.split(" ")[0];
+    let argument = input.split(" ")[1];
+    switch(command.toLowerCase()){
+      case "test":
+        printToTerminal("Hello, World!");
+        break;
+      case "open":
+        let app = argument.toLowerCase();
+        let isRealApp = false;
+        for(let i = 0; i < apps.length; i++){
+          if (app === apps[i]){
+            openWindow(document.getElementById(app));
+            isRealApp = true;
           }
-          if (isRealApp){
-            printToTerminal("Successfully opened " + app);
-          } else {
-            printToTerminal('"' + app + '" ' + "is'nt a real app");
-          }
-          break;
-        case "help":
-          printToTerminal('Command list: "open [app]" opens said app,' + 
-            ' "developer" opens the website of the game,' + 
-            ' "visit [youtuber]" leads to the youtube-homepage of a youtuber (only certain ones I selected) (please write names of youtubers consisting of multiple words as one word)');
-          break;
-        case "developer":
-          window.open("https://www.factorio.com/");
-          printToTerminal("Successfully opened the game's website");
-          break;
-        case "visit":
-          let youtuber = argument.toLowerCase();
-          if (youtuberIDs.has(youtuber)){
-            window.open("https://www.youtube.com/" + youtuberIDs.get(youtuber));
-            printToTerminal("Successfully opened the youtube of " + youtuber);
-          } else {
-            printToTerminal("Sorry, your youtuber isn't in my list");
-          }
-          break;
-        default:
-          if (command === ""){
-            printToTerminal("Please enter an actual command ;)");
-          } else {
-            printToTerminal(command.length < 10 ?
-              '"' + command + '" ' + "is'nt a valid command" :
-              "This isn't a valid command");
-          }
-          break;
-      }
+        }
+        if (isRealApp){
+          printToTerminal("Successfully opened " + app);
+        } else {
+          printToTerminal('"' + app + '" ' + "is'nt a real app");
+        }
+        break;
+      case "help":
+        printToTerminal('Command list: "open [app]" opens said app,' +
+          ' "developer" opens the website of the game,' +
+          ' "visit [youtuber]" leads to the youtube-homepage of a youtuber (only certain ones I selected) (please write names of youtubers consisting of multiple words as one word)');
+        break;
+      case "developer":
+        window.open("https://www.factorio.com/");
+        printToTerminal("Successfully opened the game's website");
+        break;
+      case "visit":
+        let youtuber = argument.toLowerCase();
+        if (youtuberIDs.has(youtuber)){
+          window.open("https://www.youtube.com/" + youtuberIDs.get(youtuber));
+          printToTerminal("Successfully opened the youtube of " + youtuber);
+        } else {
+          printToTerminal("Sorry, your youtuber isn't in my list");
+        }
+        break;
+      default:
+        if (command === ""){
+          printToTerminal("Please enter an actual command ;)");
+        } else {
+          printToTerminal(command.length < 10 ?
+            '"' + command + '" ' + "is'nt a valid command" :
+            "This isn't a valid command");
+        }
+        break;
     }
-  })
-}
+  }
+})

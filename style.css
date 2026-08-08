@@ -11,6 +11,7 @@
     flex-direction: row;
     justify-content: space-between;
     background-color: rgb(42, 36, 36);
+    border-radius: 10px 10px 0px 0px;
     color: orange;
     margin: 0px;
     padding: 0px;
